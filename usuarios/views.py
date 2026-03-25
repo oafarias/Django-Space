@@ -14,7 +14,7 @@ def login(request):
             nome=form['nome_login'].value()
             senha=form['senha'].value()
             
-        usuario = auth.authenticate(
+            usuario = auth.authenticate(
             request,
             username=nome,
             password=senha
@@ -36,10 +36,7 @@ def cadastro(request):
         form = CadastroForms(request.POST)
 
         if form.is_valid():
-            if form["senha_1"].value() != form["senha_2"].value():
-                messages.error(request, "Senhas não são iguais")
-                return redirect ('cadastro')
-
+            
             nome=form['nome_cadastro'].value()
             email=form['email'].value()
             senha=form['senha_1'].value()
